@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "migrate": "npx sequelize-cli db:migrate && npx sequelize db:seed:all",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
+    "pretest": "cross-env NODE_ENV=test npm run migrate:reset"
   },
   "author": "Doltons",
   "license": "ISC",
@@ -21,6 +24,9 @@
     "sequelize-cli": "^6.3.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "cross-env": "^7.0.3",
+    "jest": "^27.4.6",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6"
   }
 }
