@@ -12,7 +12,7 @@ module.exports = {
      * }], {});
      */
 
-    await queryInterface.bulkInsert("People", [
+    await queryInterface.bulkInsert("Users", [
       {
         name: "Admin",
         email: "admin@beam.com",
