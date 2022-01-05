@@ -5,3 +5,4 @@
 - Bcrypt
 - JWT
 - Joi
+- Jest
